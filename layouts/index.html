@@ -1,0 +1,12 @@
+{{ define "main" }}
+  {{ $currentSection := .CurrentSection }}
+  {{ $break := false }}
+  {{ range .Site.RegularPages.ByWeight }}
+    {{ if ne $break true }}
+      {{ if in (.Permalink | string) $currentSection.RelPermalink }}
+        {{ $break = true }}
+        {{ partial "main/docs-content.html" . }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}

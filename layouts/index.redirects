@@ -1,0 +1,9 @@
+# redirects for Netlify - https://www.netlify.com/docs/redirects/
+
+{{- range $p := .Site.Pages -}}
+{{- range .Aliases }}
+{{ . }} {{ $p.RelPermalink -}}
+{{- end }}
+{{- end }}
+
+https://terraform-docs.io/dl/* https://github.com/terraform-docs/terraform-docs/releases/download/:splat
