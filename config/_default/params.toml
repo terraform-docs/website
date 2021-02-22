@@ -1,0 +1,52 @@
+# Meta Data for SEO
+
+## Homepage
+title = "terraform-docs"
+titleLogoLight = "logo-full-light.png"
+titleLogoDark = "logo-full-dark.png"
+titleSeparator = " | "
+titleAddition = ""
+description = "Generate documentation from Terraform modules in various output formats."
+
+## Open Graph + Twitter Cards
+images = ["twitter-card_400x400.png"]
+# twitterSite = ""
+# twitterCreator = ""
+# facebookAuthor = ""
+# facebookPublisher = ""
+ogLocale = "en_US"
+
+## JSON-LD
+schemaType = "Organization"
+# schemaLogo = ""
+# schemaTwitter = ""
+# schemaLinkedIn = ""
+schemaGitHub = "https://github.com/terraform-docs"
+# schemaSection = ""
+
+## Sitelinks Search Box
+siteLinksSearchBox = false
+
+## Chrome Browser
+themeColor = "#fff"
+
+# Images
+quality = 85
+bgColor = "#fff"
+landscapePhotoWidths = [900, 800, 700, 600, 500]
+portraitPhotoWidths = [800, 700, 600, 500]
+lqipWidth = "20x"
+
+# Footer
+footer = """
+  &copy; terraform-docs Authors 2021.
+  Documentation distributed under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a>.
+"""
+
+# Alert
+alert = false
+alertText = ""
+
+# Edit Page
+docsRepo = "https://github.com/terraform-docs/terraform-docs"
+editPage = true

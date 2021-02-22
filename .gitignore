@@ -1,0 +1,7 @@
+functions
+node_modules
+public
+resources
+
+.hugo/*
+!.hugo/version
