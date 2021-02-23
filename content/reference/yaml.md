@@ -22,20 +22,6 @@ terraform-docs yaml [PATH] [flags]
   -h, --help   help for yaml
 ```
 
-```yaml
-    inputs:
-      - name: bool-1
-        type: bool
-        description: It's bool number one.
-        default: true
-        required: false
-      - name: bool-2
-        type: bool
-        description: It's bool number two.
-        default: false
-        required: false
-```
-
 ## Inherited Options
 
 ```console
@@ -328,7 +314,7 @@ generates the following output:
         providerName: aws
         providerSource: hashicorp/aws
         mode: data
-        version: 2.15.0
+        version: latest
       - type: resource
         providerName: "null"
         providerSource: hashicorp/null

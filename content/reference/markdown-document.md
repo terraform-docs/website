@@ -59,7 +59,7 @@ generates the following output:
     - list item 1
     - list item 2
 
-    Even inline **formatting** in _here_ is possible.
+    Even inline **formatting** in _here_ is possible.  
     and some [link](https://domain.com/)
 
     * list item 3
@@ -82,7 +82,7 @@ generates the following output:
     }
     ```
 
-    Here is some trailing text after code block,
+    Here is some trailing text after code block,  
     followed by another line of text.
 
     | Name | Description     |
@@ -138,7 +138,7 @@ generates the following output:
 
     The following resources are used by this module:
 
-    - [aws_caller_identity](https://registry.terraform.io/providers/hashicorp/aws/2.15.0/docs/data-sources/caller_identity)
+    - [aws_caller_identity](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity)
     - [null_resource](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource)
     - [tls_private_key](https://registry.terraform.io/providers/hashicorp/tls/latest/docs/resources/private_key)
 
@@ -226,7 +226,7 @@ generates the following output:
 
     ### input-with-code-block
 
-    Description: This is a complicated one. We need a newline.
+    Description: This is a complicated one. We need a newline.  
     And an example in a code block
     ```
     default     = [

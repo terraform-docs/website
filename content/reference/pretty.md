@@ -104,7 +104,7 @@ generates the following output:
     modulecall.foo (bar,1.2.3)
 
 
-    resource.aws_caller_identity (https://registry.terraform.io/providers/hashicorp/aws/2.15.0/docs/data-sources/caller_identity)
+    resource.aws_caller_identity (https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity)
     resource.null_resource (https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource)
     resource.tls_private_key (https://registry.terraform.io/providers/hashicorp/tls/latest/docs/resources/private_key)
 
@@ -124,7 +124,7 @@ generates the following output:
     input.input-with-code-block ([
       "name rack:location"
     ])
-    This is a complicated one. We need a newline.
+    This is a complicated one. We need a newline.  
     And an example in a code block
     ```
     default     = [

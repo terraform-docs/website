@@ -372,7 +372,7 @@ generates the following output:
           "providerName": "aws",
           "provicerSource": "hashicorp/aws",
           "mode": "data",
-          "version": "2.15.0"
+          "version": "latest"
         },
         {
           "type": "resource",

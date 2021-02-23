@@ -347,7 +347,7 @@ generates the following output:
       providerName = "aws"
       providerSource = "hashicorp/aws"
       mode = "data"
-      version = "2.15.0"
+      version = "latest"
 
     [[resources]]
       type = "resource"

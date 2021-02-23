@@ -371,7 +371,7 @@ generates the following output:
           <providerName>aws</providerName>
           <providerSource>hashicorp/aws</providerSource>
           <mode>data</mode>
-          <version>2.15.0</version>
+          <version>latest</version>
         </resource>
         <resource>
           <type>resource</type>
