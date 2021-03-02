@@ -1,8 +1,8 @@
 [[docs]]
-  name = "Getting Started"
+  name = "User Guide"
   weight = 10
-  identifier = "getting-started"
-  url = "/getting-started/"
+  identifier = "user-guide"
+  url = "/user-guide/"
 
 [[docs]]
   name = "Reference"
