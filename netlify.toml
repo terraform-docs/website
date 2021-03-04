@@ -7,7 +7,7 @@
   NPM_VERSION = "7.3.0"
 
 [context.production]
-  command = "hugo -b $URL --gc && npm run build:functions"
+  command = "hugo -b $URL --gc"
 
 [context.deploy-preview]
   command = "hugo -b $DEPLOY_PRIME_URL --gc"
