@@ -5,6 +5,12 @@
   url = "/user-guide/"
 
 [[docs]]
+  name = "Developer Guide"
+  weight = 20
+  identifier = "developer-guide"
+  url = "/developer-guide/"
+
+[[docs]]
   name = "Reference"
   weight = 90
   identifier = "reference"

@@ -37,6 +37,16 @@ body.dark .btn-primary {
 
   color: $body-bg-dark !important;
 }
+body.dark .btn-outline-primary {
+  // @include button-variant($button-color-dark, $button-color-dark);
+
+  border-color: $button-color-dark !important;
+
+  &:hover, &:active {
+    color: $body-bg-dark !important;
+    background: $button-color-dark !important;
+  }
+}
 
 body.dark .navbar {
   background: $body-bg-dark;
@@ -175,6 +185,7 @@ body.dark .docs-navigation {
 }
 
 body.dark ::selection {
+  color: $border-dark;
   background: $selection-color-dark;
 }
 
