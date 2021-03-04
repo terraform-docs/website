@@ -174,7 +174,7 @@ body {
 }
 
 ::selection {
-  background: lighten($primary, 55%);
+  background: lighten($primary, 35%);
 }
 
 .bg-dots {
@@ -185,16 +185,16 @@ body {
   mask: linear-gradient(to top, #fff, transparent);
   width: 100%;
   height: 9rem;
-  margin-top: -10rem;
+  margin-top: -7rem;
   z-index: -1;
 }
 
 .bg-dots-md {
-  margin-top: -11rem;
+  margin-top: -8rem;
 }
 
 .bg-dots-lg {
-  margin-top: -12rem;
+  margin-top: -9rem;
 }
 
 // https://fossheim.io/writing/posts/css-text-gradient/
