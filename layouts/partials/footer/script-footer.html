@@ -16,13 +16,15 @@
   {{ $indexProd := $index | resources.Minify | resources.Fingerprint "sha512" -}}
   <script src="{{ $jsProd.Permalink }}" integrity="{{ $jsProd.Data.Integrity }}" crossorigin="anonymous" defer></script>
   <script src="{{ $indexProd.Permalink }}" integrity="{{ $indexProd.Data.Integrity }}" crossorigin="anonymous" defer></script>
+  {{ if in (.Site.BaseURL | string) "terraform-docs.io" }}
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-190560615-1"></script>
-  <script>
+  <script nonce="gtagmanager">
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
     gtag('config', 'UA-190560615-1');
   </script>
+  {{ end }}
 {{ end -}}
