@@ -4,6 +4,7 @@
 
 $body-bg-dark: $gray-900;
 $body-overlay-dark: darken($body-bg-dark, 2.5%);
+$code-background-dark: lighten($gray-900, 6.5%);
 $border-dark: darken($body-bg-dark, 2.5%);
 $body-color-dark: $gray-300;
 $dots-dark: darken($body-color-dark, 50%);
@@ -190,12 +191,12 @@ body.dark ::selection {
 }
 
 body.dark pre {
-  background: $body-overlay-dark;
+  background: $code-background-dark;
   color: $body-color-dark;
 }
 
 body.dark code {
-  background: $body-overlay-dark;
+  background: $code-background-dark;
   color: $body-color-dark;
 }
 
