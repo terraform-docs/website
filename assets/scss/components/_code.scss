@@ -8,8 +8,8 @@ samp {
 }
 
 pre {
-  background: $beige;
-  color: $black;
+  background: $code-background;
+  color: $code-foreground;
   line-height: $line-height-lg;
   margin: 2rem 0;
   overflow: auto;
@@ -18,8 +18,8 @@ pre {
 }
 
 code {
-  background: $beige;
-  color: $black;
+  background: $code-background;
+  color: $code-foreground;
   padding: 0.25rem 0.5rem;
 }
 
