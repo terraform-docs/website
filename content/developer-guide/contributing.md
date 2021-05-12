@@ -5,7 +5,7 @@ menu:
   docs:
     parent: "developer-guide"
 weight: 220
-toc: true
+toc: false
 ---
 
 Check [CONTRIBUTING.md](https://git.io/JtEzg) file on the root of our repository

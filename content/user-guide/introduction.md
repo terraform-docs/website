@@ -5,7 +5,7 @@ menu:
   docs:
     parent: "user-guide"
 weight: 100
-toc: true
+toc: false
 ---
 
 `terraform-docs` is a utility to generate documentation from Terraform modules in

@@ -4,7 +4,7 @@ description: "terraform-docs how to's on variety of topics."
 menu:
   docs:
     parent: "user-guide"
-weight: 130
+weight: 140
 toc: true
 ---
 

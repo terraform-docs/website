@@ -5,7 +5,7 @@ menu:
   docs:
     parent: "developer-guide"
 weight: 210
-toc: true
+toc: false
 ---
 
 If you want to add or change formatter, you need to write plugins. When changing
