@@ -14,5 +14,14 @@
         </ul>
       </div>
     </div>
+    {{- if .Site.Params.sponsor -}}
+    <div class="row">
+      <div class="col-lg-16">
+        <ul class="list-inline">
+          <li class="list-inline-item">{{ .Site.Params.sponsor | safeHTML }}</li>
+        </ul>
+      </div>
+    </div>
+    {{- end -}}
   </div>
 </footer>
