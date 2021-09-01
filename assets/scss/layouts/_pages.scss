@@ -12,6 +12,14 @@
   padding-left: 0.5rem;
 }
 
+.showcase-meta {
+  margin-top: 2rem;
+}
+
+.showcase-meta a {
+  color: $body-color;
+}
+
 h1:hover a,
 h2:hover a,
 h3:hover a,
@@ -20,14 +28,19 @@ h4:hover a {
   text-decoration: none;
 }
 
+.showcase-meta a:hover,
+.showcase-meta a:focus {
+  color: $primary;
+}
+
 .card-list {
   margin-top: 2.25rem;
 }
 
 .edit-page {
   margin-top: 3rem;
-  text-align: right;
   font-size: $font-size-base;
+  text-align: right;
 }
 
 .edit-page svg {
@@ -38,4 +51,13 @@ h4:hover a {
 p.meta {
   margin-top: 0.5rem;
   font-size: $font-size-base;
+}
+
+.docs-toc-ad {
+  margin: 1.5rem 0;
+}
+
+.view-website {
+  padding-left: 0.46875rem;
+  padding-right: 0.46875rem;
 }

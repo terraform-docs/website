@@ -1,31 +1,56 @@
-document.getElementById('mode').addEventListener('click', () => {
+var search = document.getElementById('search');
 
-  document.body.classList.toggle('dark');
-  localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+if (search !== null) {
+  document.addEventListener('keydown', inputFocus);
+}
 
-});
-
-if (localStorage.getItem('theme') === 'dark') {
-
-  document.body.classList.add('dark');
-
+function inputFocus(e) {
+  if (e.ctrlKey && e.key === '/' ) {
+    e.preventDefault();
+    search.focus();
+  }
+  if (e.key === 'Escape' ) {
+    search.blur();
+  }
 }
 
 /* eslint-disable */
-var clipboard = new ClipboardJS('.btn-clipboard');
+if (document.querySelector('#search') !== null) {
+  docsearch({
+    apiKey: 'TODO',
+    indexName: 'TODO',
+    inputSelector: '#search',
+    debug: false,
+  });
+}
+/* eslint-enable */
 
-clipboard.on('success', function(e) {
-    /*
-    console.info('Action:', e.action);
-    console.info('Text:', e.text);
-    console.info('Trigger:', e.trigger);
-    */
+/*
+ * https://css-tricks.com/using-netlify-forms-and-netlify-functions-to-build-an-email-sign-up-widget/
+ * https://answers.netlify.com/t/how-to-include-dependencies-in-netlify-lambda-functions/2323/38
+*/
 
-    e.clearSelection();
-});
+/* eslint-disable */
+const processForm = form => {
+  const data = new FormData(form)
+  data.append('form-name', 'newsletter');
+  fetch('/', {
+    method: 'POST',
+    body: data,
+  })
+  .then(() => {
+    form.innerHTML = '<p class="form--success"><strong>Almost there!</strong> Check your inbox for a confirmation e-mail.</p>';
+  })
+  .catch(error => {
+    form.innerHTML = '<p class="form--error"><strong>Error:</strong> ${error}</p>';
+  })
+}
 
-clipboard.on('error', function(e) {
-    console.error('Action:', e.action);
-    console.error('Trigger:', e.trigger);
-});
+const emailForm = document.querySelector('.email-form')
+if (emailForm) {
+  emailForm.addEventListener('submit', e => {
+    e.preventDefault();
+    processForm(emailForm);
+  })
+}
 /* eslint-enable */

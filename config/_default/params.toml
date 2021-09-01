@@ -49,8 +49,21 @@ sponsor = """
 
 # Alert
 alert = false
+alertDismissable = true
 alertText = ""
 
 # Edit Page
 docsRepo = "https://github.com/terraform-docs/terraform-docs"
 editPage = true
+
+[options]
+  lazySizes = true
+  clipBoard = true
+  instantPage = true
+  darkMode = true
+  bootStrapJs = true
+  breadCrumb = false
+  highLight = true
+  collapsibleSidebar = false
+  multilingualMode = false
+  docsVersioning = false

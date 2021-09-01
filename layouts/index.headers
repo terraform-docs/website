@@ -2,7 +2,7 @@
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   X-Content-Type-Options: nosniff
   X-XSS-Protection: 1; mode=block
-  Content-Security-Policy: default-src 'self'; frame-ancestors https://jamstackthemes.dev; manifest-src 'self'; connect-src 'self'; font-src 'self'; img-src 'self' https://www.google-analytics.com data:; script-src 'self' 'nonce-gtagmanager' https://www.googletagmanager.com; style-src 'self'
+  Content-Security-Policy: default-src 'self'; frame-ancestors https://jamstackthemes.dev; manifest-src 'self'; connect-src 'self'; font-src 'self'; img-src 'self' https://www.google-analytics.com data:; script-src 'self' 'unsafe-eval' 'nonce-gtagmanager' https://www.googletagmanager.com https://cdn.carbonads.com; style-src 'self'
   X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin
   Feature-Policy: geolocation 'self'
