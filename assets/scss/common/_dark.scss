@@ -369,8 +369,12 @@ body.dark .docs-toc::-webkit-scrollbar-thumb:hover {
   background: $border-dark;
 }
 
-body.dark .docs-links h3:not(:first-child) {
+body.dark .docs-links .list-submenu.level-0:not(:first-child) {
   border-top: 1px solid $border-dark;
+}
+
+body.dark .docs-links .docs-toggle ~ label .icon {
+  fill: $body-color-dark;
 }
 
 body.dark a.docs-link {
@@ -493,4 +497,8 @@ body.dark .email-form .form-control {
 
 body.dark .email-form .form-control:focus {
   border: 1px solid $link-color-dark;
+}
+
+body.dark .table thead th {
+  color: $body-color-dark;
 }
