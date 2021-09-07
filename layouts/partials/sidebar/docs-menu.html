@@ -1,35 +1,74 @@
-{{ $currentPage := . -}}
-{{ range .Site.Menus.docs -}}
-  <h3>{{ .Name }}</h3>
-  {{ if .HasChildren -}}
-  <ul class="list-unstyled">
-    {{ range .Children -}}
-      {{- $active := or ($currentPage.IsMenuCurrent "docs" .) ($currentPage.HasMenuCurrent "docs" .) -}}
-      {{- $active = or $active (eq .Name $currentPage.Title) -}}
-      <li><a class="docs-link{{ if $active }} active{{ end }}" href="{{ .URL | absURL }}">{{ .Name }}</a></li>
-      {{ if .HasChildren -}}
-      <li class="list-submenu">
-        <ul class="list-unstyled">
-          {{ range .Children -}}
-            {{- $active := or ($currentPage.IsMenuCurrent "docs" .) ($currentPage.HasMenuCurrent "docs" .) -}}
-            {{- $active = or $active (eq .Name $currentPage.Title) -}}
-            <li><a class="docs-link{{ if $active }} active{{ end }}" href="{{ .URL | absURL }}">{{ .Name }}</a></li>
-            {{ if .HasChildren -}}
-            <li class="list-submenu">
-              <ul class="list-unstyled">
-                {{ range .Children -}}
-                  {{- $active := or ($currentPage.IsMenuCurrent "docs" .) ($currentPage.HasMenuCurrent "docs" .) -}}
-                  {{- $active = or $active (eq .Name $currentPage.Title) -}}
-                  <li><a class="docs-link{{ if $active }} active{{ end }}" href="{{ .URL | absURL }}">{{ .Name }}</a></li>
-                {{ end -}}
-              </ul>
-            </li>
-            {{ end -}}
-          {{ end -}}
-        </ul>
-      </li>
-      {{ end -}}
-    {{ end -}}
-  </ul>
+{{- define "menu-file" -}}
+  {{- $current := .current -}}
+  {{- $site := .site -}}
+  {{- $level := .level -}}
+
+  <ul class="list-unstyled level-{{ $level }}">
+  {{ range .sect -}}
+    {{- $current.Scratch.Set "current" $current -}}
+    {{- $current.Scratch.Set "site" $site -}}
+
+    <li class="list-submenu level-{{ $level }}">
+      {{ $site := $current.Scratch.Get "site" -}}
+      {{- $this := $site.GetPage .URL -}}
+      {{- $current := $current.Scratch.Get "current" -}}
+      {{- $isActive := or ($current.IsMenuCurrent "docs" .) ($current.HasMenuCurrent "docs" .) -}}
+      {{- $isActive = or $isActive (eq .Name $current.Title) -}}
+      {{- $isAncestor := $this.IsAncestor $current -}}
+      {{- $id := substr (sha1 $this.Permalink) 0 8 -}}
+      {{- $uniq := substr (sha1 now.UnixNano) 0 8 -}}
+      {{- $doCollapse := .Params.Collapse -}}
+
+      {{- if $doCollapse -}}
+      <input type="checkbox" id="{{ printf "navtree-%s-%s" $id $uniq }}" class="docs-toggle" {{ if or $isActive $isAncestor }}checked{{ end }}>
+      <label for="{{ printf "navtree-%s-%s" $id $uniq }}">
+      {{- end -}}
+      {{- if .Parent -}}
+      <a href="{{ .URL | absURL }}" class="docs-link{{ if $isActive }} active{{ end }}">
+          {{ .Name }}
+      </a>
+      {{- else }}
+      <h3>{{ .Name }}</h3>
+      {{- end }}
+      {{ if $doCollapse }}
+      <svg class="icon arrow-right level-{{ $level }}" version="1.1" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 32 32"><path d="M6.125 28.25l12.25-12.25-12.25-12.25 3.75-3.75 15.999 15.999-15.999 15.999z"></path></svg>
+      <svg class="icon arrow-down level-{{ $level }}" version="1.1" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 28 28"><path d="M3.281 5.36l10.719 10.719 10.719-10.719 3.281 3.281-14 14-14-14z"></path></svg>
+      </label>
+      {{- end -}}
+
+      {{- if .HasChildren -}}
+        {{ template "menu-file" dict "sect" .Children "current" ($current.Scratch.Get "current") "site" ($current.Scratch.Get "site") "level" (add $level 1 ) }}
+      {{- end }}
+    </li>
   {{ end -}}
+  </ul>
+{{ end }}
+
+{{ if .Site.Params.options.collapsibleSidebar -}}
+  <ul class="list-unstyled collapsible-sidebar">
+  {{ $currentPage := . -}}
+  {{ range $index, $element := .Site.Menus.docs -}}
+  {{- $active := or ($currentPage.IsMenuCurrent "docs" .) ($currentPage.HasMenuCurrent "docs" .) -}}
+  {{- $active = or $active (eq $currentPage.Section .Identifier) -}}
+    <li class="mb-1">
+      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#section-{{ .Identifier }}" aria-expanded="{{ if $active }}true{{ else }}false{{ end }}">
+        {{ .Name }}
+      </button>
+      {{ if .HasChildren -}}
+      <div class="collapse{{ if $active }} show{{ end }}" id="section-{{ .Identifier }}">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+        {{ range .Children -}}
+          {{- $active := or ($currentPage.IsMenuCurrent "docs" .) ($currentPage.HasMenuCurrent "docs" .) -}}
+          {{- $active = or $active (eq $currentPage.Section .Identifier) -}}
+          <li><a class="docs-link rounded{{ if $active }} active{{ end }}" href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+        {{ end -}}
+        </ul>
+      </div>
+      {{ end -}}
+    </li>
+  {{ end -}}
+  </ul>
+{{ else -}}
+  {{- $current := . -}}
+  {{- template "menu-file" dict "sect" .Site.Menus.docs "current" . "site" .Site "level" 0 -}}
 {{ end -}}

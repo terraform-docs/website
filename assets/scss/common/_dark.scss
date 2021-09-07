@@ -5,7 +5,10 @@
 $body-bg-dark: $gray-900;
 $body-overlay-dark: darken($body-bg-dark, 2.5%);
 $code-background-dark: lighten($gray-900, 6.5%);
+/*
 $border-dark: darken($body-bg-dark, 2.5%);
+*/
+$border-dark: $gray-800;
 $body-color-dark: $gray-300;
 $dots-dark: darken($body-color-dark, 50%);
 
@@ -38,25 +41,70 @@ body.dark .btn-primary {
 
   color: $body-bg-dark !important;
 }
+
 body.dark .btn-outline-primary {
-  // @include button-variant($button-color-dark, $button-color-dark);
+  @include button-outline-variant($button-color-dark, $button-color-dark);
 
-  border-color: $button-color-dark !important;
-
-  &:hover, &:active {
-    color: $body-bg-dark !important;
-    background: $button-color-dark !important;
-  }
+  color: $link-color-dark;
 }
 
-body.dark .navbar {
-  background: $body-bg-dark;
-  opacity: 0.975;
+body.dark .btn-outline-primary:hover {
+  color: $body-bg-dark;
+}
+
+body.dark .btn-doks-light {
+  color: $navbar-dark-color;
+}
+
+body.dark .show > .btn-doks-light,
+body.dark .btn-doks-light:hover,
+body.dark .btn-doks-light:active {
+  color: $link-color-dark;
+}
+
+body.dark .btn-menu svg {
+  color: $body-color-dark;
+}
+
+body.dark .doks-sidebar-toggle {
+  color: $navbar-dark-color;
+}
+
+body.dark .btn-menu:hover,
+body.dark .btn-doks-light:hover,
+body.dark .doks-sidebar-toggle:hover {
+  background: $body-overlay-dark;
+}
+
+body.dark .dropdown-menu {
+  @extend .dropdown-menu-dark;
+}
+
+body.dark .navbar,
+body.dark .doks-subnavbar {
+  background-color: rgba(33, 37, 41, 0.95);
   border-bottom: 1px solid $border-dark;
 }
 
 body.dark.home .navbar {
   border-bottom: 0;
+}
+
+body.dark .offcanvas-header {
+  border-bottom: 1px solid $gray-800;
+}
+
+body.dark .offcanvas .nav-link {
+  color: $body-color-dark;
+}
+
+body.dark .offcanvas .nav-link:hover,
+body.dark .offcanvas .nav-link:focus {
+  color: $link-color-dark;
+}
+
+body.dark .offcanvas .nav-link.active {
+  color: $link-color-dark;
 }
 
 body.dark .navbar-light .navbar-brand {
@@ -87,16 +135,20 @@ body.dark .navbar-light .navbar-text {
   color: $navbar-dark-color;
 }
 
-body.dark .alert-primary a {
-  color: $body-bg-dark;
+body.dark .alert a {
+  color: $white;
 }
 
-body.dark .alert-warning {
-  background: $body-overlay-dark;
-  color: $body-color-dark;
+body.dark .alert {
+  background: $body-overlay-dark !important;
+  color: $body-color-dark !important;
 }
 
 body.dark .page-links a {
+  color: $body-color-dark;
+}
+
+body.dark .btn-toggle-nav a {
   color: $body-color-dark;
 }
 
@@ -113,6 +165,43 @@ body.dark .docs-link:hover,
 body.dark .docs-link.active,
 body.dark .page-links a:hover {
   text-decoration: none;
+  color: $link-color-dark;
+}
+
+body.dark .btn-toggle {
+  color: $body-color-dark;
+  background-color: transparent;
+  border: 0;
+}
+
+body.dark .btn-toggle:hover,
+body.dark .btn-toggle:focus {
+  color: $body-color-dark;
+}
+
+body.dark .btn-toggle::before {
+  width: 1.25em;
+  line-height: 0;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%28222, 226, 230, 0.75%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transition: transform 0.35s ease;
+  transform-origin: 0.5em 50%;
+  margin-bottom: 0.125rem;
+}
+
+body.dark .btn-toggle[aria-expanded="true"] {
+  color: $body-color-dark;
+}
+
+body.dark .btn-toggle[aria-expanded="true"]::before {
+  transform: rotate(90deg);
+}
+
+body.dark .btn-toggle-nav a:hover,
+body.dark .btn-toggle-nav a:focus {
+  color: $link-color-dark;
+}
+
+body.dark .btn-toggle-nav a.active {
   color: $link-color-dark;
 }
 
@@ -152,6 +241,8 @@ body.dark .navbar .btn-link:active {
 
 body.dark .form-control.is-search {
   background: $body-overlay-dark;
+  border: 1px solid transparent;
+  color: $gray-300;
 
   /*
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%236c757d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E");
@@ -161,13 +252,33 @@ body.dark .form-control.is-search {
   */
 }
 
-body.dark .navbar-form::after {
-  color: $gray-700;
-  border: 1px solid $body-bg-dark;
+body.dark .form-control.is-search:focus {
+  border: 1px solid $link-color-dark;
 }
 
-body.dark .form-control:focus {
-  box-shadow: 0 0 0 0.2rem $focus-color-dark;
+body.dark .doks-search::after {
+  color: $gray-300;
+  border: 1px solid $gray-700;
+}
+
+body.dark .text-dark {
+  color: $body-color-dark !important;
+}
+
+/*
+body.dark .navbar-form::after {
+  color: $gray-600;
+  border: 1px solid $gray-800;
+}
+*/
+
+body.dark .form-control {
+  color: $gray-300;
+}
+
+body.dark .form-control::placeholder {
+  color: $gray-400;
+  opacity: 1;
 }
 
 body.dark .border-top {
@@ -195,9 +306,22 @@ body.dark pre {
   color: $body-color-dark;
 }
 
-body.dark code {
+body.dark pre code::-webkit-scrollbar-thumb {
+  background: $gray-400;
+}
+
+body.dark code:not(.hljs) {
   background: $code-background-dark;
   color: $body-color-dark;
+}
+
+body.dark pre code:hover {
+  scrollbar-width: thin;
+  scrollbar-color: $border-dark transparent;
+}
+
+body.dark pre code::-webkit-scrollbar-thumb:hover {
+  background: $gray-500;
 }
 
 body.dark blockquote {
@@ -245,8 +369,12 @@ body.dark .docs-toc::-webkit-scrollbar-thumb:hover {
   background: $border-dark;
 }
 
-body.dark .docs-links h3:not(:first-child) {
+body.dark .docs-links .list-submenu.level-0:not(:first-child) {
   border-top: 1px solid $border-dark;
+}
+
+body.dark .docs-links .docs-toggle ~ label .icon {
+  fill: $body-color-dark;
 }
 
 body.dark a.docs-link {
@@ -304,5 +432,73 @@ body.dark .alert-primary {
 }
 
 body.dark .figure-caption {
+  color: $body-color-dark;
+}
+
+body.dark table {
+  @extend .table-dark;
+}
+
+body.dark .copy-status::after {
+  content: "Copy";
+  display: block;
+  color: $body-color-dark;
+}
+
+body.dark .copy-status:hover::after {
+  content: "Copy";
+  display: block;
+  color: $link-color-dark;
+}
+
+body.dark .copy-status:focus::after,
+body.dark .copy-status:active::after {
+  content: "Copied";
+  display: block;
+  color: $link-color-dark;
+}
+
+/*
+body.dark .dropdown-toggle:focus,
+body.dark .doks-sidebar-toggle:focus {
+  box-shadow: 0 0 0 0.2rem $focus-color-dark;
+}
+*/
+
+body.dark .offcanvas {
+  background-color: $body-bg-dark;
+}
+
+body.dark .btn-close {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNkZWUyZTYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0iZmVhdGhlciBmZWF0aGVyLXgiPjxsaW5lIHgxPSIxOCIgeTE9IjYiIHgyPSI2IiB5Mj0iMTgiPjwvbGluZT48bGluZSB4MT0iNiIgeTE9IjYiIHgyPSIxOCIgeTI9IjE4Ij48L2xpbmU+PC9zdmc+");
+  background-size: 1.5rem;
+}
+
+@include media-breakpoint-up(md) {
+  body.dark .alert-dismissible .btn-close {
+    background-size: 1.25rem;
+  }
+}
+
+/*
+body.dark .btn-close:focus {
+  box-shadow: 0 0 0 0.2rem $focus-color-dark;
+}
+*/
+
+body.dark hr.text-black-50 {
+  color: $gray-600 !important;
+}
+
+body.dark .email-form .form-control {
+  background: $body-overlay-dark;
+  border: 1px solid transparent;
+}
+
+body.dark .email-form .form-control:focus {
+  border: 1px solid $link-color-dark;
+}
+
+body.dark .table thead th {
   color: $body-color-dark;
 }

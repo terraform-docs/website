@@ -3,18 +3,21 @@
   weight = 10
   identifier = "user-guide"
   url = "/user-guide/"
+  params = { collapse = true }
 
 [[docs]]
   name = "Developer Guide"
   weight = 20
   identifier = "developer-guide"
   url = "/developer-guide/"
+  params = { collapse = true }
 
 [[docs]]
   name = "Reference"
   weight = 90
   identifier = "reference"
   url = "/reference/"
+  params = { collapse = true }
 
 [[social]]
   name = "GitHub"

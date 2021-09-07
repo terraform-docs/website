@@ -1,4 +1,5 @@
 baseurl = "/"
+canonifyURLs = false
 disableAliases = true
 disableHugoGeneratorInject = true
 enableEmoji = false
@@ -7,7 +8,7 @@ enableRobotsTXT = true
 languageCode = "en-US"
 paginate = 7
 rssLimit = 10
-pygmentsCodeFences = true
+# pygmentsCodeFences = true
 
 # add redirects/headers
 [outputs]
@@ -42,10 +43,21 @@ isPlainText = true
 noUgly = true
 rel  = "sitemap"
 
+[caches]
+  [caches.getjson]
+    dir = ":cacheDir/:project"
+    maxAge = "10s"
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.extensions]
       linkify = false
+    [markup.goldmark.parser]
+      autoHeadingID = true
+      autoHeadingIDType = "github"
+      [markup.goldmark.parser.attribute]
+        block = true
+        title = true
     [markup.goldmark.renderer]
       unsafe = true
   [markup.highlight]
@@ -70,7 +82,14 @@ rel  = "sitemap"
 [permalinks]
   blog = "/blog/:title/"
 
+[minify.tdewolff.html]
+  keepWhitespace = false
+
 [module]
+  [module.hugoVersion]
+    extended = true
+    min = "0.80.0"
+    max = ""
   [[module.mounts]]
     source = "assets"
     target = "assets"
@@ -78,17 +97,8 @@ rel  = "sitemap"
     source = "static"
     target = "static"
   [[module.mounts]]
-    source = "node_modules/lazysizes"
-    target = "assets/js/vendor/lazysizes"
+    source = "node_modules/docsearch.js"
+    target = "assets/js/vendor/docsearch.js"
   [[module.mounts]]
-    source = "node_modules/instant.page"
-    target = "assets/js/vendor/instant.page"
-  [[module.mounts]]
-    source = "node_modules/lazysizes"
-    target = "assets/js/vendor/lazysizes"
-  [[module.mounts]]
-    source = "node_modules/flexsearch"
-    target = "assets/js/vendor/flexsearch"
-  [[module.mounts]]
-    source = "node_modules/clipboard"
-    target = "assets/js/vendor/clipboard"
+    source = "node_modules/mermaid"
+    target = "assets/js/vendor/mermaid"
