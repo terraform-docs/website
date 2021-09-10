@@ -17,8 +17,8 @@ function inputFocus(e) {
 /* eslint-disable */
 if (document.querySelector('#search') !== null) {
   docsearch({
-    apiKey: 'TODO',
-    indexName: 'TODO',
+    apiKey: 'a87e6b8ab747af81ebcd64bc8b83acef',
+    indexName: 'terraform-docs',
     inputSelector: '#search',
     debug: false,
   });
