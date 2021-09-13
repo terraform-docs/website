@@ -7,3 +7,4 @@
 {{- end }}
 
 https://terraform-docs.io/dl/* https://github.com/terraform-docs/terraform-docs/releases/download/:splat
+https://terraform-docs.io/user-guide/how-to/ https://terraform-docs.io/how-to/
