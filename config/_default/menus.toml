@@ -6,8 +6,15 @@
   params = { collapse = true }
 
 [[docs]]
-  name = "Developer Guide"
+  name = "How To's"
   weight = 20
+  identifier = "how-to"
+  url = "/how-to/"
+  params = { collapse = true }
+
+[[docs]]
+  name = "Developer Guide"
+  weight = 30
   identifier = "developer-guide"
   url = "/developer-guide/"
   params = { collapse = true }
