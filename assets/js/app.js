@@ -15,11 +15,17 @@ function inputFocus(e) {
 }
 
 /* eslint-disable */
-if (document.querySelector('#search') !== null) {
+if (document.querySelector('#search-lg') !== null || document.querySelector('#search-xs') !== null) {
   docsearch({
     apiKey: 'a87e6b8ab747af81ebcd64bc8b83acef',
     indexName: 'terraform-docs',
-    inputSelector: '#search',
+    inputSelector: '#search-lg',
+    debug: false,
+  });
+  docsearch({
+    apiKey: 'a87e6b8ab747af81ebcd64bc8b83acef',
+    indexName: 'terraform-docs',
+    inputSelector: '#search-xs',
     debug: false,
   });
 }
